@@ -1,3 +1,5 @@
+#Optimized Nth prime number computation
+# The implementation idea is from https://en.wikipedia.org/wiki/Primality_test
 import math
 def is_prime(n):
     flag = True
