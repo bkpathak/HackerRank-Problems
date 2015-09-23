@@ -1,3 +1,4 @@
+#https://www.youtube.com/watch?v=hqijNdQTBH8
 def permute1(lst):
     if len(lst) == 0:
         yield []
