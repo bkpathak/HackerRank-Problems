@@ -5,13 +5,11 @@ def permute1(lst):
     elif len(lst) == 1:
         yield lst
     else:
-        l = []
         for i in range(len(lst)):
             x = lst[i]
             xs = lst[:i]+lst[i+1:]
             for p in permute1(xs):
                 yield [x] + p
-        return l
 
 
 def permute(str,left,right):
