@@ -5,19 +5,19 @@ class Node(object):
         self.right = None
 
 #Only works when both of the nodes are present in the tree.
-def least_com_ancestor1(root,n1,n2):
+def lowest_com_ancestor1(root,n1,n2):
     if root is None:
         return None
     if root.val == n1 or root.val == n2:
         return root
 
-    left = least_com_ancestor(root.left,n1,n2)
-    right = least_com_ancestor(root.right,n1,n2)
+    left = lowest_com_ancestor1(root.left,n1,n2)
+    right = lowest_com_ancestor1(root.right,n1,n2)
 
     if left and right:
         return root
 
-    return root if left else right
+    return left if left else right
 
 
 root = Node(1)
@@ -28,4 +28,8 @@ root.left.right = Node(5)
 root.right.left = Node(6)
 root.right.right = Node(7)
 
-print(least_com_ancestor(root,10,11).val)
+result = lowest_com_ancestor1(root,2,4)
+if result:
+    print("The LCA is: ",result.val)
+else:
+    print("LCA not present.")
