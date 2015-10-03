@@ -12,15 +12,15 @@ def permute1(lst):
                 yield [x] + p
 
 
-def permute(str,left,right):
+def permute2(str,left,right):
     if left == right:
         print(str)
     else:
         for i in range(left,right):
             str[i], str[left] = str[left], str[i]
-            permute1(str,left+1,right)
+            permute2(str,left+1,right)
             str[i], str[left] = str[left], str[i]
 data = list("ABC")
-#permute2(data)
-for p in permute1(data):
-    print(p)
+permute2(data,0,3)
+#for p in permute1(data):
+#    print(p)
