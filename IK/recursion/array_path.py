@@ -20,4 +20,4 @@ def array_path(arr,i,j):
     elif j == len(arr[0])-1:
         return array_path(arr,i+1,j)
 
-print(array_path([[1,1,1],[1,1,1],[1,1,1]],0,0))
+print(array_path([[1,1,1],[1,1,1],[1,1,1,1]],0,0))
