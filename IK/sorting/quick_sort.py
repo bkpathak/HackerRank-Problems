@@ -5,13 +5,14 @@ def partition(num_list,lo,hi):
     if hi <= lo:
         return
     v = num_list[lo]
-    i = lo + 1
-    j = hi
+    i = lo
+    j = hi + 1
     while (True):
+        i += 1
         while(num_list[i] < v and i < hi):
             i += 1
-
-        while(num_list[j] > v and j > lo):
+        j -= 1
+        while(num_list[j] > v):
             j -= 1
 
         if ( i >= j):
@@ -30,4 +31,4 @@ def quick_sort(num_list,lo,hi):
     quick_sort(num_list, lo, p - 1)
     quick_sort(num_list, p+1, hi)
 
-quick_sort([9,8,7,6,5,4,3,2,1],0,8)
+quick_sort([1,1,1,1,1,1,1,1,1,1],0,9)
