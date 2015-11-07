@@ -52,10 +52,10 @@ def merge2(left,right):
 def sort(lst):
     lst_len = len(lst)
     aux = [0] * lst_len
-    #merge_sort(lst,aux,0,lst_len-1)
-    print(merge_sort2(lst))
+    merge_sort(lst,aux,0,lst_len-1)
+    #print(merge_sort2(lst))
     #print(lst)
 
-lst = [9,8,7,6,5,4,3,2,1]
+lst = [0,-1,-2,5,4]
 sort(lst)
-#print(lst)
+print(lst)
