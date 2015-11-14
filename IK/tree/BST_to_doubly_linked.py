@@ -24,15 +24,20 @@ def conver_to_doubly(root,head,previous):
     # point current node form head and current node right points back to the
     # head. The head node get automatically updated as the recusrsion folds back.
     head.left = root
+    current_right = root.right
     root.right = head
 
     # set the previos node to the current node.
     previous = root
 
     # traverse the right leaf of the tree.
-    conver_to_doubly(root.right,head, previous)
+    conver_to_doubly(current_right,head, previous)
 
 
 tree = Node(30, Node(20, Node(15),Node(25)),Node(40,Node(35),Node(50)))
 
-head = conver_to_doubly(tree,Node(None),Node(None))
+head = conver_to_doubly(tree,None,None)
+
+while(head):
+    print(head.val)
+    head = head.right
