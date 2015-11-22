@@ -17,14 +17,14 @@ other than its parent. This will form a CYCLE.
 graph = {}
 
 def detect_cycle():
-    if len(detect_cycle) == 1:
-        return
+    if len(graph) == 0:
+        return False
 
     visited = [False] * len(graph)
     # Recurse through all the nodes
-    for node in graph:
+    for node in graph.keys():
         if not visited[node]:
-            if is_cycle(graph, visited, -1):
+            if is_cycle(node, visited, -1):
                 return True
     return False
 
