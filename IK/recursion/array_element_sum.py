@@ -4,7 +4,7 @@ Check if the array contains elements which adds up to the target.
 """
 
 def arr_element_sum(arr,target):
-    arr_element_sum_util(arr,target,0)
+    return arr_element_sum_util(arr,target,0)
 
 def arr_element_sum_util(arr,target,start):
     if target == 0:

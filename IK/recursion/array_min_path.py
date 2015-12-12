@@ -8,9 +8,9 @@ def find_low_val_path(matrix,row,col):
         return matrix[row][col] + min(find_low_val_path(matrix,row + 1,col),
                                       find_low_val_path(matrix,row,col - 1))
     elif row == len(matrix) - 1:
-        return find_low_val_path(matrix,row,col - 1)
+        return matrix[row][col] + find_low_val_path(matrix,row,col - 1)
     elif col == 0:
-        return find_low_val_path(matrix,row - 1,col)
+        return matrix[row][col] + find_low_val_path(matrix,row + 1,col)
 data = [
     [1,2,3],
     [4,5,6],
@@ -18,5 +18,3 @@ data = [
    ]
 
 print(find_low_val_path(data,0,2))
-
-    

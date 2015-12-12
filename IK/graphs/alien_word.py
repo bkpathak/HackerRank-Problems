@@ -57,8 +57,9 @@ def topological_sort(graph):
     return stack
 
 def find_order(word_dict):
-    if len(word_dict) == 0:
-        print("No word present in dictionary.")
+    if len(word_dict) <= 1:
+        print("".join(word_dict))
+        return
 
     graph = create_graph(word_dict)
     ch_order = topological_sort(graph)
@@ -72,4 +73,6 @@ def find_order(word_dict):
 
 word_dict = ["baa", "abcd", "abca", "cab", "cad"]
 
-find_order(word_dict)
+word_dict2 = ['abc']
+
+find_order(word_dict2)
