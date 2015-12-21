@@ -33,35 +33,35 @@ def sink(min_heap,i,heap_size):
 def sort_arr(arr,k):
     # create min_heap with first k element
     min_heap = []
-    for i in range(k):
+    heap_size = k + 1
+    for i in range(heap_size):
         min_heap.append(arr[i])
 
     # Heapify the min heap
-    heapify(min_heap, k)
+    heapify(min_heap, heap_size)
 
     # Now take the root of the min_heap and add the new element from array
     index  = 0
-    for new_elem in range(k,len(arr)):
+    for new_elem in range(heap_size,len(arr)):
         # put the root of the node
         arr[index] = min_heap[0]
         index += 1
         # add new element to heap
         min_heap[0] = arr[new_elem]
         # sink the root
-        sink(min_heap,0,k)
+        sink(min_heap,0,heap_size)
 
-    for i in range(k):
+    while index < len(arr):
         arr[index] = min_heap[0]
         # put int max to the root of the min_heap
         min_heap[0] = 2 ** 32
         index += 1
-        sink(min_heap,0,k)
+        sink(min_heap,0,heap_size)
 
 if __name__ == "__main__":
-    k = 3
-    arr = [2, 6, 3, 12, 56, 8]
-    print("Before Sort")
-    print(arr)
-    sort_arr(arr,3)
-    print("After Sort")
-    print(arr)
+    k = [3,2]
+    data = [[2, 6, 3, 12, 56, 8], [3,2,1,4,7,6,8]]
+    for i,d in enumerate(data):
+        print("Before Sort: " , d)
+        sort_arr(d,k[i])
+        print("After Sort", d)
