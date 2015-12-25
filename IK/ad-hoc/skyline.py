@@ -98,8 +98,9 @@ class Skyline(object):
 
 if __name__ == "__main__":
     sk = Skyline()
-    building_array = [(1,11,5), (2,6,7), (3,13,9), (12,7,16), (14,3,25),
-         (19,18,22), (23,13,29), (24,4,28) ]
+    #building_array = [(1,11,5), (2,6,7), (3,13,9), (12,7,16), (14,3,25),
+    #     (19,18,22), (23,13,29), (24,4,28) ]
+    building_array = [(1,5,2),(2,5,6),(6,5,10),(10,5,15),(15,5,20)]
 
     sky_line = sk.find_silhoutte(building_array,0, len(building_array) - 1)
     sky_line.displlay_silhoutte()
