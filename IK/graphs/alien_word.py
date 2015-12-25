@@ -1,4 +1,6 @@
 """
+Find the order of the charater in alien dictionary.
+
 The time complexity of the algorithm is:
 1. creating graph
     O(n + alphabet_size), where n is total number of words in dictionary

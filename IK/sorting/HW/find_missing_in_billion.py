@@ -30,7 +30,11 @@ def find_missing_number_10mb(file_path):
         if bin_count < 65536:
             break # we have found an incomplete bin with missing ints (bin_num)
 
-    # Read through the ~4 billion integer list; and count how many ints fall in each of the 2^16 bins and find an incomplete_bin that doesn't have all 65536 numbers. Then you read through the 4 billion integer list again; but this time only notice when integers are in that range; flipping a bit when you find them.
+    # Read through the ~4 billion integer list; and count how many ints fall in each
+    # of the 2^16 bins and find an incomplete_bin that doesn't have all 65536 numbers.
+    # Then you read through the 4 billion integer list again; but this time only notice
+    # when integers are in that range; flipping a bit when you find them.
+    
     del nums_in_bin # allow gc to free old 256kB array
     my_bit_array = bitarray(65536) # 32 kB
     my_bit_array.setall(0)
