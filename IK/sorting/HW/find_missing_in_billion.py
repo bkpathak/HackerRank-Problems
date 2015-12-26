@@ -11,7 +11,7 @@ def find_missing_number(file_path):
     2^32) and set the bit if the number is present.Pass through the bitarray
     again and return the first bit that is 0.
     """
-    bit_array = bit_array(2 ** 32)
+    bit_array = bitarray(2 ** 32)
     with open("file_path",r) as in in_file:
         for number in in_file:
             bit_array[number] = True
@@ -34,7 +34,7 @@ def find_missing_number_10mb(file_path):
     # of the 2^16 bins and find an incomplete_bin that doesn't have all 65536 numbers.
     # Then you read through the 4 billion integer list again; but this time only notice
     # when integers are in that range; flipping a bit when you find them.
-    
+
     del nums_in_bin # allow gc to free old 256kB array
     my_bit_array = bitarray(65536) # 32 kB
     my_bit_array.setall(0)
