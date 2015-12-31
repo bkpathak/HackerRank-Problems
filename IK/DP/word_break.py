@@ -59,8 +59,8 @@ def break_word_bottom_up(str_in):
         for i in range(str_len - l + 1):
             j = i + l-1
             # Check the string from i to j is in dictionary
-            sub_str = str_in[i:j+1]
             if sub_str in Dictionary:
+            sub_str = str_in[i:j+1]
                 T[i][j] = i
                 continue
             # Find k between i and j such that T[i][k-1] and T[k]T[j] are True
