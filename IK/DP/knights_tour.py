@@ -51,7 +51,42 @@ def find_10_digit_num_count_memo(start_num,count):
     memo_dict[(start_num,count)] = first_move + second_move
     return (first_move+second_move)
 
+#  Below shows how the DP table is filled
+#       0   1   2  3    4   5    6  7   8    9        Digit in the keypad
+#   1   1   1   1   1   1   0   1   1   1    1        Count for 1 digit
+#   2   2   2   2   2   2   0   2   2   2    2        Count for 2 digit
+#   3   4   4   4   4   4   0   4   4   4    4        Count for 3 digit
+#   4   8   8   8   8   8   0   8   8   8    8
+#   .   . . . . . . . . . .
+#   10 512 512 512 512 512  0 512 512 512 512         Count for 10 digit
+# The table id filled by adding the the value from the posotion which leads to
+# the current position
+# e.g Count of numbers form of length 3 dtarting at 1 is given by sum of counts
+# of length 2 at position 6 and 8
+
+def find_10_digit_num_count_memo_bottom_up(start_num,count):
+    # Auxillary array to hold the result
+    S = [[0] * 10 for i in range(count)]
+
+    # Initialize the base case
+    for i in range(10):
+        S[0][i] = 1
+    # Set 0 for 5
+    S[0][5] = 0
+
+
+    for i in range(1,count):
+        for j in range(10):
+            previous_pos = knight_move[j]
+            if previous_pos is not None:
+                S[i][j] = S[i-1][previous_pos[0]] + S[i-1][previous_pos[1]]
+            else:
+                S[i][j] = 0
+
+    return S[count-1][start_num]
+
 if __name__ == "__main__":
 
-    print(find_10_digit_num_count(1,100))
-    print(find_10_digit_num_count_memo(1,100))
+    print(find_10_digit_num_count(1,10))
+    print(find_10_digit_num_count_memo(1,10))
+    print(find_10_digit_num_count_memo_bottom_up(1,10))
