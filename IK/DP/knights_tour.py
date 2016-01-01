@@ -63,6 +63,8 @@ def find_10_digit_num_count_memo(start_num,count):
 # the current position
 # e.g Count of numbers form of length 3 dtarting at 1 is given by sum of counts
 # of length 2 at position 6 and 8
+# If we look closely the answer is just 2 ** (digit_count -1) , since in each
+# number can be reached from 2 other number
 
 def find_10_digit_num_count_memo_bottom_up(start_num,count):
     # Auxillary array to hold the result
