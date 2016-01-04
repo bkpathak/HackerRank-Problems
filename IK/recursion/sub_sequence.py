@@ -10,7 +10,7 @@ def sub_sequence(str_L, str_S,l,s):
     result = 0
     if(str_L[l] == str_S[s]):
         result += sub_sequence(str_L, str_S,l+1,s+1)
-    result += sub_sequence(str_L,str_S,l,s+1)
+    result += sub_sequence(str_L,str_S,l + 1,s)
     return result
 
 print(sub_sequence("ababc","abc",0,0))
