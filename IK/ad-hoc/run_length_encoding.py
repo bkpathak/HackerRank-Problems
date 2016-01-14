@@ -9,7 +9,7 @@ def run_len_encoding(in_string):
     str_len = len(in_string)-1
     right = str_len - 1
     for i in range(1,str_len):
-        rle_l = str_len - i 
+        rle_l = str_len - i
         if rle_l > 1:
             print(in_string[:i] + str(rle_l)+in_string[-1])
         rle_r = str_len - i -1
