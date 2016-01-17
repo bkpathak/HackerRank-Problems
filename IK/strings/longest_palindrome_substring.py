@@ -22,7 +22,6 @@ def longest_palindrome(string):
 
 def find_palindrome(string,start,end):
     while (start >= 0 and end < len(string) and string[start] == string[end]):
-        start -= 1
         end += 1
     return string[start+1:end]
 
