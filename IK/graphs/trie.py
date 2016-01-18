@@ -48,8 +48,12 @@ class Trie(object):
 
 
     def delete(self,key):
+        # search is the key present in tie
+        if not self.search(key):
+            raise ValueError("Key is not present in Trie")
+
         start = self.root
-        self.delete_helper(self, start, key,0)
+        self.delete_helper(start, key,0)
 
     def delete_helper(self,root, key,pos):
         """
@@ -66,21 +70,23 @@ class Trie(object):
             if pos == len(key):
                 if root.is_word:
                     root.is_word = False
-                    if self.has_child_node(root):
+                    if not self.has_child_node(root):
                         return True
-                    else:
-                        False
+
+                return False
             # Recursive case
             else:
                 ind = self.index(key[pos])
-                if self.delete_helper(root.child[ind],pos + 1):
+                if self.delete_helper(root.child[ind],key,pos + 1):
                     # Last node in key delete it
-                    root[ind] = None
+                    root.child[ind] = None
                     # recursively delete the upper eligible nodes
                     return not self.has_child_node(root) and not root.is_word
-    def has_any_child(self,root):
-        for i in NUM_OF_CHAR:
-            if root[i] is not None:
+                return False
+
+    def has_child_node(self,root):
+        for i in range(NUM_OF_CHAR):
+            if root.child[i] is not None:
                 return True
 
 if __name__ == "__main__":
@@ -90,5 +96,21 @@ if __name__ == "__main__":
     trie.insertWord("anne")
     trie.insertWord("to")
     trie.insertWord("ton")
+    # Search Trie for Ann
     if trie.search("ann"):
-        print("present")
+        print("ann is present.")
+
+    # Delete ann from trie
+    print("ann is deleted from trie")
+    trie.delete("ann")
+    # Search trie for ann
+    print("searching ann from trie")
+    if trie.search("ann"):
+        print("ann is present.")
+    else:
+        print("ann is not presnted in trie")
+    # Searh anne from trie
+    if trie.search("anne"):
+        print("anne is present.")
+    else:
+        print("anne is not presnted in trie")
