@@ -1,4 +1,3 @@
-# http://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/
 class Node(object):
     """
     Creates the Node
