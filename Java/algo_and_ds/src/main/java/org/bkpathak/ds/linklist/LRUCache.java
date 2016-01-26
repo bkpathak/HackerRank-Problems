@@ -1,4 +1,4 @@
-package org.bkpathak.algo;
+package org.bkpathak.ds.linklist;
 
 /**
  * Created by bijay on 1/24/16.
