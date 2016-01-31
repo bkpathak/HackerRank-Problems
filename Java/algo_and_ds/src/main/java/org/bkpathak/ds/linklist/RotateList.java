@@ -1,5 +1,8 @@
 package org.bkpathak.ds.linklist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by bijay on 1/28/16.
  * Given the integer k, less then or equals the length of  k, rotate the
@@ -9,7 +12,7 @@ package org.bkpathak.ds.linklist;
  */
 
 public class RotateList {
-
+    
     public static LinkList rotateList(int k, LinkList list) {
         if (k >= list.length || list == null) {
             return list;
