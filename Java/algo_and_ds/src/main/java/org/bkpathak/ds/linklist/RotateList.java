@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 public class RotateList {
-    
+
     public static LinkList rotateList(int k, LinkList list) {
         if (k >= list.length || list == null) {
             return list;
@@ -41,8 +41,8 @@ public class RotateList {
         }
         System.out.println("Before rotating:");
         list.display();
-        RotateList.rotateList(2,list);
+        LinkList rList = RotateList.rotateList(2,list);
         System.out.println("After  rotation:");
-        list.display();
+        rList.display();
     }
 }
