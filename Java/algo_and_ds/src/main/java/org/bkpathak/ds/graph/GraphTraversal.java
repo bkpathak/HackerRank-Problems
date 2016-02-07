@@ -62,7 +62,11 @@ public class GraphTraversal {
 
             // Loop through all the adjacent vertices
             while(itr.hasNext()){
-                
+                int nextV = itr.next();
+                if(!visited[nextV]){
+                    visited[nextV] = true;
+                    queue.add(nextV);
+                }
             }
         }
 
@@ -77,9 +81,13 @@ public class GraphTraversal {
         graph.addEdge(1,3);
         graph.addEdge(3,2);
         graph.addEdge(4,2);
+
         // DFS graph traverse
         System.out.println("DFS traversal of graph starting at the vertex " + 0);
         gTraverse.dfs(graph,0);
 
+        // BFS traverse
+        System.out.println("DFS traversal of graph starting at the vertex " + 0);
+        gTraverse.bfs(graph,0);
     }
 }
