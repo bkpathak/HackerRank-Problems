@@ -43,6 +43,6 @@ public class Graph{
      * Return the iterator for the graph list
      */
     public Iterator<Integer> iterator(int v){
-        return adjacecyList.get(v).listIterator();
+        return adjacecyList.get(v).iterator();
     }
 }
