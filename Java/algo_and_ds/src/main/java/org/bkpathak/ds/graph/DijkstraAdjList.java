@@ -41,6 +41,7 @@ public class DijkstraAdjList {
             }
         });
 
+        vertexLocation = new Node[v];
         // Create the New Node and add it to the queue
         for (int i = 0; i < v; i++) {
             Node temp = new Node(i, Integer.MAX_VALUE);
@@ -75,7 +76,6 @@ public class DijkstraAdjList {
             // Extract the Node with minimum distance from queue
             minNode = queue.poll();
             currU = minNode.vrtx;
-            // Mark the currU as visited
             visited[currU] = true;
 
             // Traverse through all the vertex of currV and update the distance
@@ -89,12 +89,18 @@ public class DijkstraAdjList {
                 // 1. currV is already relaxed( dist[currV] != Integer.MAX_VALUE)
                 // 2. distance to vertex V, through currV is less than previously calculated
                 // 3. vertex is not visited
-                if (!visited[v] && dist[currU] != Integer.MAX_VALUE && dist[currU] + wght < dist[v]) {
+                if (dist[currU] != Integer.MAX_VALUE && dist[currU] + wght < dist[v]) {
                     dist[v] = dist[currU] + wght;
                     // Update the parent
                     parent[v] = currU;
                     // Update the node dist in queue
-                    vertexLocation[v].dst = dist[v];
+                    // 1. First extract the node form the queue
+                    // 2. Update the node
+                    // 3. Reinsert the node
+                    queue.remove(vertexLocation[v]);
+                    Node temNode = new Node(v,dist[v]);
+                    vertexLocation[v]= temNode;
+                    queue.add(temNode);
                 }
             }
         }
@@ -145,7 +151,6 @@ public class DijkstraAdjList {
         dijkstraAdjList.displayDistance();
         dijkstraAdjList.displayPath();
 
-        System.out.println("TESTINGGGG");
 
 
     }
