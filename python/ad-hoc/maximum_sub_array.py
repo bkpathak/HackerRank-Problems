@@ -7,12 +7,12 @@ def max_sum_sub_array(array):
     start_ind = end_index = temp_index = 0
 
     for i in range(1,len(array)):
-        if (current_sum + array[i]) > array[i]:
+        if array[i] > (current_sum + array[i]):
             current_sum = array[i]
             temp_index = i
         else:
             current_sum += array[i]
-            temp_index = i
+
         if current_sum > max_sum:
             max_sum = current_sum
             start_ind = temp_index
